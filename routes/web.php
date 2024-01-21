@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ListingController;
+use App\Models\Testimonial;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,37 +24,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function () {
-    return view('index');
-})->name('home');
+Route::get('index', [MainController::class ,'index']) ->name('index');
+Route::get('about', [MainController::class, 'about'])->name('about');
 
-Route::get('blog', function () {
-    return view('blog');
-})->name('blog');
+Route::get('testimonials', [TestimonialController::class, 'index'])->name('testimonials');
 
-Route::get('contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('contact', [ContactController::class, 'index'])->name('contact');
+Route::post('sendEmail', [ContactController::class, 'send'])->name('sendEmail');
 
-Route::get('testimonials', function () {
-    return view('testimonials');
-})->name('testimonials');
+Route::get('listing', [ListingController::class, 'index'])->name('listing');
+Route::get('blog', [ListingController::class, 'blog'])->name('blog');
+Route::get('single', [ListingController::class, 'single'])->name('single');
 
-Route::get('listing', function () {
-    return view('listing');
-})->name('listing');
+Auth::routes(['verify' => true]);
 
-Route::get('about', function () {
-    return view('about');
-})->name('about');
-
-Route::get('single', function () {
-    return view('single');
-})->name('single');
-
-// Route::get('/', 'HomeController@index')->name('home');
-// Route::get('/listing', 'ListingController@index')->name('listing');
-// Route::get('/testimonials', 'TestimonialsController@index')->name('testimonials');
-// Route::get('/blog', 'BlogController@index')->name('blog');
-// Route::get('/about', 'AboutController@index')->name('about');
-// Route::get('/contact', 'ContactController@index')->name('contact');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('message', function (Blueprint $table) {
+        Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-            $table->string('firstName', 50);
-            $table->string('lastName', 50);
-            $table->string('email');
-            $table->text('messageContent');
-            $table->boolean('readed');
+            $table->string('testiName');
+            $table->string('testiPosition');
+            $table->text('content');
+            $table->boolean('testiPublished');
+            $table->string('testiImage');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('message');
+        Schema::dropIfExists('testimonials');
     }
 };

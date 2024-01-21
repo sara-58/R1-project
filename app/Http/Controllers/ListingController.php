@@ -11,9 +11,19 @@ class ListingController extends Controller
      */
     public function index()
     {
-        //
+        return view('listing');
     }
 
+    public function blog()
+    {
+        return view('blog');
+    }
+
+    public function single()
+    {
+        return view('single');
+    }
+    
     /**
      * Show the form for creating a new resource.
      */

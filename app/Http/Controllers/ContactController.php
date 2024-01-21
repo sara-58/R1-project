@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Message;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
+
+
 
 class ContactController extends Controller
 {
@@ -11,7 +16,28 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        return view('contact');
+    }
+
+     
+    public function send(Request $request)
+     
+    {
+        $message = $request->validate(
+            [
+                'firstName' => 'required|string|max:50',
+                'lastName' => 'required|string|max:50',
+                'email' => 'required|email',
+                'messageContent' => 'required|string',
+            ]
+            );
+
+        Message::create($message);
+
+
+        Mail::to('sara@example.com')->send(new ContactMail($message));
+
+        return 'Message sent successfully';
     }
 
     /**

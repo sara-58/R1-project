@@ -15,8 +15,8 @@
                 <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
 
                     <ul class="site-menu main-menu js-clone-nav ml-auto">
-                        <li class="{{ Request::is('home') ? 'active' : '' }}">
-                            <a href="{{ route('home') }}" class="nav-link">Home</a>
+                        <li class="{{ Request::is('index') ? 'active' : '' }}">
+                            <a href="{{ route('index') }}" class="nav-link">Home</a>
                         </li>
                         <li class="{{ Request::is('listing') ? 'active' : '' }}">
                             <a href="{{ route('listing') }}" class="nav-link">Listing</a>
