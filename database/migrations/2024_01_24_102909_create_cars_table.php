@@ -19,9 +19,10 @@ return new class extends Migration
             $table->text('doors');
             $table->text('passengers');
             $table->text('price');
-            $table->foreignId('category_id')->constrained('category');
+            $table->foreignId('category_id')->constrained('categories');
             $table->text('description');
             $table->boolean('carPublished');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -18,6 +18,25 @@ class MainController extends Controller
     {
         return view('about');
     }
+
+    public function testi()
+    {
+        return view('testimonials');
+    }
+    public function listing()
+    {
+        return view('listing');
+    }
+
+    public function blog()
+    {
+        return view('blog');
+    }
+
+    public function single()
+    {
+        return view('single');
+    }
     /**
      * Show the form for creating a new resource.
      */

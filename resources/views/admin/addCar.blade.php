@@ -14,16 +14,7 @@ Add Car
                 <h3>Manage Cars</h3>
             </div>
 
-            <div class="title_right">
-                <div class="col-md-5 col-sm-5  form-group pull-right top_search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
-                        </span>
-                    </div>
-                </div>
-            </div>
+            @include('includesdash.searchfor')
         </div>
         <div class="clearfix"></div>
         <div class="row">
@@ -31,44 +22,31 @@ Add Car
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>Add Car</h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a class="dropdown-item" href="#">Settings 1</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
+                        @include('includesdash.toolbox')
+
                     </div>
                     <div class="x_content">
                         <br />
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        <form id="demo-form2" action="{{ route('storeCar') }}" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                            @csrf
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" id="title" required="required" class="form-control ">
+                                    <input type="text" id="title" required="required" class="form-control " name="carTitle">
                                 </div>
                             </div>
-                            <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span>
+                            <div class=" item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <textarea id="content" name="content" required="required" class="form-control">Contents</textarea>
+                                    <textarea id="content" name="description" required="required" class="form-control">Description</textarea>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label for="luggage" class="col-form-label col-md-3 col-sm-3 label-align">Luggage <span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input id="luggage" class="form-control" type="number" name="luggage" required="required">
+                                    <input id="luggage" class="form-control" type="number" name="luggages" required="required">
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -93,15 +71,15 @@ Add Car
                                 <label class="col-form-label col-md-3 col-sm-3 label-align">Active</label>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" class="flat">
+                                        <input type="checkbox" class="flat" name="carPublished">
                                     </label>
                                 </div>
                             </div>
-                            <div class="item form-group">
+                            <div class=" item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="file" id="image" name="image" required="required" class="form-control">
+                                    <input type="file" id="image" name="carImage" required="required" class="form-control">
                                 </div>
                             </div>
 
@@ -109,10 +87,11 @@ Add Car
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Category <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <select class="form-control" name="category" id="">
-                                        <option value=" ">Select Category</option>
-                                        <option value="cat1">Category 1</option>
-                                        <option value="cat2">Category 2</option>
+                                    <select class="form-control" name="category_id" id="">
+                                        <option value="">Select Category</option>
+                                        @foreach($categories as $category)
+                                        <option value="{{ $category->id}}">{{$category->categoryName}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

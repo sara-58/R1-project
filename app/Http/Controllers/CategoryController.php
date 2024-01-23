@@ -3,33 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 
-class ListingController extends Controller
+class CategoryController extends Controller
 {
+    private $columns =[
+        'categoryName',
+    ];
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('listing');
+        $categories = Category::get();
+        return view('dashboard.categoryList', compact('categories'));
     }
 
-    public function blog()
-    {
-        return view('blog');
-    }
-
-    public function single()
-    {
-        return view('single');
-    }
-    
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('admin.addCategory');
     }
 
     /**
@@ -37,7 +32,13 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'categoryName' => 'required|string|max:255',
+        ]);
+
+        Category::create($data);
+
+        return 'done';
     }
 
     /**
@@ -53,7 +54,8 @@ class ListingController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('admin.editCategory', compact('category'));
     }
 
     /**
@@ -61,7 +63,13 @@ class ListingController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'categoryName' => 'required|string|max:255',
+        ]);
+
+        Category::where('id', $id)->update($data);
+
+        return redirect()->route('category');
     }
 
     /**
@@ -69,6 +77,7 @@ class ListingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Category::where('id', $id)->delete();
+        return redirect()->route('category');
     }
 }
