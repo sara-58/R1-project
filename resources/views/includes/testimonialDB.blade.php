@@ -6,135 +6,28 @@
                 <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
         </div>
+        @if(count($testimonials) > 0)
         <div class="row">
+            @foreach($testimonials->reverse()->take(6) as $testimonial)
             <div class="col-lg-4 mb-4">
                 <div class="testimonial-2">
                     <blockquote class="mb-4">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
+                        <p>{{$testimonial->content}}</p>
                     </blockquote>
                     <div class="d-flex v-card align-items-center">
-                        <img src="images/person_1.jpg" alt="Image" class="img-fluid mr-3">
+                        <img src="{{ asset('assets/images/'.$testimonial->testiImage) }}" alt="Image" class="img-fluid mr-3">
                         <div class="author-name">
-                            <span class="d-block">Mike Fisher</span>
-                            <span>Owner, Ford</span>
+                            <span class="d-block">{{$testimonial->testiName}}</span>
+                            <span>{{$testimonial->testiPosition}}</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-2">
-                    <blockquote class="mb-4">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-                    </blockquote>
-                    <div class="d-flex v-card align-items-center">
-                        <img src="images/person_2.jpg" alt="Image" class="img-fluid mr-3">
-                        <div class="author-name">
-                            <span class="d-block">Jean Stanley</span>
-                            <span>Traveler</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-2">
-                    <blockquote class="mb-4">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-                    </blockquote>
-                    <div class="d-flex v-card align-items-center">
-                        <img src="images/person_3.jpg" alt="Image" class="img-fluid mr-3">
-                        <div class="author-name">
-                            <span class="d-block">Katie Rose</span>
-                            <span>Customer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-2">
-                    <blockquote class="mb-4">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-                    </blockquote>
-                    <div class="d-flex v-card align-items-center">
-                        <img src="images/person_1.jpg" alt="Image" class="img-fluid mr-3">
-                        <div class="author-name">
-                            <span class="d-block">Mike Fisher</span>
-                            <span>Owner, Ford</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-2">
-                    <blockquote class="mb-4">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-                    </blockquote>
-                    <div class="d-flex v-card align-items-center">
-                        <img src="images/person_2.jpg" alt="Image" class="img-fluid mr-3">
-                        <div class="author-name">
-                            <span class="d-block">Jean Stanley</span>
-                            <span>Traveler</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-2">
-                    <blockquote class="mb-4">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-                    </blockquote>
-                    <div class="d-flex v-card align-items-center">
-                        <img src="images/person_3.jpg" alt="Image" class="img-fluid mr-3">
-                        <div class="author-name">
-                            <span class="d-block">Katie Rose</span>
-                            <span>Customer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-2">
-                    <blockquote class="mb-4">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-                    </blockquote>
-                    <div class="d-flex v-card align-items-center">
-                        <img src="images/person_1.jpg" alt="Image" class="img-fluid mr-3">
-                        <div class="author-name">
-                            <span class="d-block">Mike Fisher</span>
-                            <span>Owner, Ford</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-2">
-                    <blockquote class="mb-4">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-                    </blockquote>
-                    <div class="d-flex v-card align-items-center">
-                        <img src="images/person_2.jpg" alt="Image" class="img-fluid mr-3">
-                        <div class="author-name">
-                            <span class="d-block">Jean Stanley</span>
-                            <span>Traveler</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-2">
-                    <blockquote class="mb-4">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-                    </blockquote>
-                    <div class="d-flex v-card align-items-center">
-                        <img src="images/person_3.jpg" alt="Image" class="img-fluid mr-3">
-                        <div class="author-name">
-                            <span class="d-block">Katie Rose</span>
-                            <span>Customer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
+        @else
+        <p>No testimonials available.</p>
+        @endif
+
     </div>
 </div>

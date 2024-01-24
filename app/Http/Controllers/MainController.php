@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Testimonial;
+use App\Models\Car;
 
 class MainController extends Controller
 {
@@ -11,7 +13,8 @@ class MainController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $cars = Car::get();
+        return view('index', compact('cars'));
     }
 
     public function about()
@@ -21,16 +24,21 @@ class MainController extends Controller
 
     public function testi()
     {
-        return view('testimonials');
+        $testimonials = Testimonial::get();
+        return view('testimonial', compact('testimonials'));
+
     }
     public function listing()
     {
-        return view('listing');
+        $cars = Car::paginate(6);
+        return view('listing', compact('cars'));
     }
 
     public function blog()
     {
-        return view('blog');
+        $cars = Car::paginate(6);
+        return view('blog', compact('cars'));
+
     }
 
     public function single()

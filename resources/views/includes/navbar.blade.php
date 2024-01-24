@@ -21,8 +21,8 @@
                         <li class="{{ Request::is('listing') ? 'active' : '' }}">
                             <a href="{{ route('listing') }}" class="nav-link">Listing</a>
                         </li>
-                        <li class="{{ Request::is('testimonials') ? 'active' : '' }}">
-                            <a href="{{ route('testimonials') }}" class="nav-link">Testimonials</a>
+                        <li class="{{ Request::is('testimonial') ? 'active' : '' }}">
+                            <a href="{{ route('testimonial') }}" class="nav-link">Testimonials</a>
                         </li>
                         <li class="{{ Request::is('blog') ? 'active' : '' }}">
                             <a href="{{ route('blog') }}" class="nav-link">Blog</a>

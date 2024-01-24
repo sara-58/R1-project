@@ -27,10 +27,8 @@ class CarController extends Controller
     public function index()
     {
         $cars = Car::get();
-        return view('dashboard.carlList', compact('cars'));
+        return view('dashboard.carList', compact('cars'));
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -70,7 +68,8 @@ class CarController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $car = Car::findOrFail($id);
+        return view('single', compact('car'));
     }
 
     /**

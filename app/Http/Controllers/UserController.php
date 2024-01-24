@@ -4,28 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactMail;
+use App\Traits\Common;
+use Carbon\Carbon;
+
 
 class UserController extends Controller
 {
-    public function send(Request $request)
-    {
-        // $user = $request->validate(
-        //     [
-        //         'fullName' => 'required | string| max:255',
-        //         'userName' => 'required | string| max:255',
-        //         'email' => 'required|email|max:255',
-        //         'message'   => 'required|string',
-        //     ]
-        // );
-    }   
+    use Common;
+
+    private $columns = [
+        'fullName',
+        'userName',
+        'email',
+        'password',
+        'active',
+        'email_verified_at',
+    ];
+ 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $users = User::get();
+        return view('dashboard.userList', compact('users'));
     }
 
     /**
@@ -33,9 +35,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        // User::create($user);
-        // Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($user));
-        // return 'data sent successfully';
+        return view('admin.addUser');
     }
 
     /**
@@ -43,7 +43,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'fullName' => ['required', 'string', 'max:255'],
+            'userName' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
+        ]);
+        
+        $data['active'] = isset($request['active']);
+        $data['email_verified_at'] = now();
+
+        User::create($data);
+
+        return 'done';
     }
 
     /**
@@ -51,7 +63,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        
+        //
     }
 
     /**
@@ -59,7 +71,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.editUser', compact('user'));
     }
 
     /**
@@ -67,7 +80,18 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'fullName' => ['required', 'string', 'max:255'],
+            'userName' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
+        ]);
+
+        $data['active'] = isset($request->active);
+
+        User::where('id', $id)->update($data);
+
+        return redirect()->route('users');
     }
 
     /**
@@ -75,6 +99,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        User::where('id', $id)->delete();
+        return redirect()->route('users');
     }
 }

@@ -8,7 +8,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CarController;
-use App\Models\Testimonial;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,18 +27,18 @@ Route::get('/', function () {
 
 Route::get('index', [MainController::class ,'index']) ->name('index');
 Route::get('about', [MainController::class, 'about'])->name('about');
-Route::get('testimonials', [MainController::class, 'testi'])->name('testimonials');
+Route::get('testimonial', [MainController::class, 'testi'])->name('testimonial');
 Route::get('listing', [MainController::class, 'listing'])->name('listing');
 Route::get('blog', [MainController::class, 'blog'])->name('blog');
 Route::get('single', [MainController::class, 'single'])->name('single');
 
-Route::get('contact', [ContactController::class, 'index'])->name('contact');
+Route::get('contact', [ContactController::class, 'create'])->name('contact');
 Route::post('sendEmail', [ContactController::class, 'send'])->name('sendEmail');
 
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['verified']], function () {
 
@@ -63,8 +63,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['verified']], function () {
     Route::put('updateCar/{id}', [CarController::class, 'update'])->name('updateCar');
     Route::get('deleteCar/{id}', [CarController::class, 'destroy'])->name('deleteCar');
 
-    Route::group(['prefix' => 'users'], function () {
-    });
+    Route::get('users', [UserController::class, 'index'])->name('users');
+    Route::get('addUser', [UserController::class, 'create'])->name('addUser');
+    Route::post('storeUser', [UserController::class, 'store'])->name('storeUser');
+    Route::get('editUser/{id}', [UserController::class, 'edit'])->name('editUser');
+    Route::put('updateUser/{id}', [UserController::class, 'update'])->name('updateUser');
+    Route::get('deleteUser/{id}', [UserController::class, 'destroy'])->name('deleteUser');
+
+    Route::get('messages', [ContactController::class, 'index'])->name('messages');
+    Route::get('showMessage/{id}', [ContactController::class, 'show'])->name('showMessage');
+    Route::get('deleteMessage/{id}', [ContactController::class, 'destroy'])->name('deleteMessage');
+
 
 });
 

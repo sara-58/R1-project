@@ -38,20 +38,14 @@ Categories
                                                 <th>Delete</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
+                                            @foreach($categories as $category)
                                             <tr>
-                                                <td>Category</td>
-                                                <td><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></td>
-                                                <td><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"></td>
+                                                <td>{{$category->categoryName}}</td>
+                                                <td><a href="editCategory/{{$category->id}}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></td>
+                                                <td><a href="deleteCategory/{{$category->id}}"><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"></td>
                                             </tr>
-                                            <tr>
-                                                <td>Category</td>
-                                                <td><img src="./images/edit.png" alt="Edit"></td>
-                                                <td><img src="./images/delete.png" alt="Delete"></td>
-                                            </tr>
-
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

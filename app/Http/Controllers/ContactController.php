@@ -16,7 +16,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('contact');
+        $messages = Message::get();
+        return view('dashboard.messageList', compact('messages'));
     }
 
      
@@ -45,7 +46,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('contact');
     }
 
     /**
@@ -61,7 +62,8 @@ class ContactController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $message = Message::findOrFail($id);
+        return view('dashboard.showMessage', compact('message'));
     }
 
     /**
@@ -85,6 +87,7 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Message::where('id', $id)->delete();
+        return redirect()->route('messages');
     }
 }

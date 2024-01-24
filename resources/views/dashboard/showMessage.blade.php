@@ -22,16 +22,19 @@ Show Messages
         <div class="clearfix"></div>
 
         <div class="row">
-            <div class="col-md-12 col-sm-12 ">
-                <div class="x_panel">
-                    <h2>Full Name: John Doe</h2>
-                    <br>
-                    <h2>Email: John@gmail.com</h2>
-                    <br>
-                    <h2>Message Content:</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In nisi facilis, excepturi ipsum recusandae quidem doloribus veniam quisquam at, dignissimos autem quos iste libero sint architecto voluptatem consectetur possimus nobis.</p>
+            <form action="{{ route('showMessage', $message->id ) }}" method="post">
+
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="x_panel">
+                        <h2>Full Name: {{$message->firstName}} {{$message->lastName}}</h2>
+                        <br>
+                        <h2>Email: {{$message->email}}</h2>
+                        <br>
+                        <h2>Message Content:</h2>
+                        <p>{{$message->messageContent}}</p>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

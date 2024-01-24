@@ -1,101 +1,52 @@
 <div class="site-section bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="post-entry-1 h-100">
-                    <a href="single.html">
-                        <img src="images/post_1.jpg" alt="Image" class="img-fluid">
-                    </a>
-                    <div class="post-entry-1-contents">
-
-                        <h2><a href="single.html">The best car rent in the entire planet</a></h2>
-                        <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
+            @foreach($cars as $car)
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="listing d-block  align-items-stretch">
+                    <div class="listing-img h-100 mr-4">
+                        <img src="{{ asset('assets/images/'.$car->carImage)}}" alt="Image" class="img-fluid" style="width: 300px; height: 250px;">
+                    </div>
+                    <div class="listing-contents h-100">
+                        <h3>{{$car->carTitle}}</h3>
+                        <div class="rent-price">
+                            <strong>$</strong><strong>{{$car->price}}</strong><span class="mx-1">/</span>day
+                        </div>
+                        <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                            <div class="listing-feature pr-4">
+                                <span class="caption">Luggage:</span>
+                                <span class="number">{{$car->luggages}}</span>
+                            </div>
+                            <div class="listing-feature pr-4">
+                                <span class="caption">Doors:</span>
+                                <span class="number">{{$car->doors}}</span>
+                            </div>
+                            <div class="listing-feature pr-4">
+                                <span class="caption">Passenger:</span>
+                                <span class="number">{{$car->passengers}}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p>{{$car->description}}</p>
+                            <p><a href="#" class="btn btn-primary btn-sm">Rent Now</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="post-entry-1 h-100">
-                    <a href="single.html">
-                        <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-                    </a>
-                    <div class="post-entry-1-contents">
-
-                        <h2><a href="single.html">The best car rent in the entire planet</a></h2>
-                        <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="post-entry-1 h-100">
-                    <a href="single.html">
-                        <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-                    </a>
-                    <div class="post-entry-1-contents">
-
-                        <h2><a href="single.html">The best car rent in the entire planet</a></h2>
-                        <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="post-entry-1 h-100">
-                    <a href="single.html">
-                        <img src="images/post_1.jpg" alt="Image" class="img-fluid">
-                    </a>
-                    <div class="post-entry-1-contents">
-
-                        <h2><a href="single.html">The best car rent in the entire planet</a></h2>
-                        <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="post-entry-1 h-100">
-                    <a href="single.html">
-                        <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-                    </a>
-                    <div class="post-entry-1-contents">
-
-                        <h2><a href="single.html">The best car rent in the entire planet</a></h2>
-                        <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="post-entry-1 h-100">
-                    <a href="single.html">
-                        <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-                    </a>
-                    <div class="post-entry-1-contents">
-
-                        <h2><a href="single.html">The best car rent in the entire planet</a></h2>
-                        <span class="meta d-inline-block mb-3">July 17, 2019 <span class="mx-2">by</span> <a href="#">Admin</a></span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos soluta, dolore harum molestias consectetur.</p>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
 
         <div class="row">
             <div class="col-5">
-                <div class="custom-pagination">
-                    <a href="#">1</a>
-                    <span>2</span>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
+                <div class="custom-pagination ">
+                    {{ $cars->links() }}
                 </div>
             </div>
         </div>
+
+        <!-- <div class="pagination  justify-content-center">
+            {{ $cars->links() }}
+        </div> -->
 
     </div>
 </div>

@@ -27,7 +27,7 @@ Edit Car
                     </div>
                     <div class="x_content">
                         <br />
-                        <form id="demo-form2" action="{{ route('updateTestimonial', $testimonial->id ) }}" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+                        <form id="demo-form2" action="{{ route('updateCar', $car->id ) }}" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="item form-group">
@@ -76,15 +76,18 @@ Edit Car
                                     </label>
                                 </div>
                             </div>
+
                             <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 ">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6">
                                     <input type="file" id="image" name="carImage" required="required" class="form-control">
-                                    <img src="{{asset('assets/images/car_1.jpg')}}" value="{{ $car->carImage }} alt="" style=" width: 300px;">
+                                    @if($car->carImage)
+                                    <img src="{{ asset('assets/images/'.$car->carImage) }}" alt="" style="width: 300px;">
+                                    @else
+                                    <p>No image available</p>
+                                    @endif
                                 </div>
                             </div>
-
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Category <span class="required">*</span>
                                 </label>

@@ -42,90 +42,19 @@ Users
                                             </tr>
                                         </thead>
 
-
                                         <tbody>
+                                            @foreach($users as $user)
                                             <tr>
-                                                <td>1 Jan 2023</td>
-                                                <td>Tony Adam</td>
-                                                <td>tony2023</td>
-                                                <td>tony@gmail.com</td>
-                                                <td>Yes</td>
-                                                <td><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></td>
+                                                <td>{{$user->email_verified_at}}</td>
+                                                <td>{{$user->fullName}}</td>
+                                                <td>{{$user->userName}}</td>
+                                                <td>{{$user->email}}</td>
+                                                <td>{{$user->active}}</td>
+                                                <td><a href="editUser/{{$user->id}}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></a></td>
                                             </tr>
-                                            <tr>
-                                                <td>1 Jan 2023</td>
-                                                <td>Tony Adam</td>
-                                                <td>tony2023</td>
-                                                <td>tony@gmail.com</td>
-                                                <td>Yes</td>
-                                                <td><img src="./images/edit.png" alt="Edit"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1 Jan 2023</td>
-                                                <td>Tony Adam</td>
-                                                <td>tony2023</td>
-                                                <td>tony@gmail.com</td>
-                                                <td>Yes</td>
-                                                <td><img src="./images/edit.png" alt="Edit"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1 Jan 2023</td>
-                                                <td>Tony Adam</td>
-                                                <td>tony2023</td>
-                                                <td>tony@gmail.com</td>
-                                                <td>Yes</td>
-                                                <td><img src="./images/edit.png" alt="Edit"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1 Jan 2023</td>
-                                                <td>Tony Adam</td>
-                                                <td>tony2023</td>
-                                                <td>tony@gmail.com</td>
-                                                <td>Yes</td>
-                                                <td><img src="./images/edit.png" alt="Edit"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1 Jan 2023</td>
-                                                <td>Tony Adam</td>
-                                                <td>tony2023</td>
-                                                <td>tony@gmail.com</td>
-                                                <td>Yes</td>
-                                                <td><img src="./images/edit.png" alt="Edit"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1 Jan 2023</td>
-                                                <td>Tony Adam</td>
-                                                <td>tony2023</td>
-                                                <td>tony@gmail.com</td>
-                                                <td>Yes</td>
-                                                <td><img src="./images/edit.png" alt="Edit"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1 Jan 2023</td>
-                                                <td>Tony Adam</td>
-                                                <td>tony2023</td>
-                                                <td>tony@gmail.com</td>
-                                                <td>Yes</td>
-                                                <td><img src="./images/edit.png" alt="Edit"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1 Jan 2023</td>
-                                                <td>Tony Adam</td>
-                                                <td>tony2023</td>
-                                                <td>tony@gmail.com</td>
-                                                <td>Yes</td>
-                                                <td><img src="./images/edit.png" alt="Edit"></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1 Jan 2023</td>
-                                                <td>Tony Adam</td>
-                                                <td>tony2023</td>
-                                                <td>tony@gmail.com</td>
-                                                <td>Yes</td>
-                                                <td><img src="./images/edit.png" alt="Edit"></td>
-                                            </tr>
-
+                                            @endforeach
                                         </tbody>
+
                                     </table>
                                 </div>
                             </div>
