@@ -8,9 +8,9 @@
             </div>
             <div class="col-lg-4 ml-auto order-lg-1">
                 <h3 class="mb-4 section-heading"><strong>You can easily avail our promo for renting a car.</strong></h3>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, explicabo iste a labore id est quas, doloremque veritatis! Provident odit pariatur dolorem quisquam, voluptatibus voluptates optio accusamus, vel quasi quidem!</p>
+                <p class="mb-5">Hi there! I'm Sara Mohamed Abdelaal, a seasoned backend developer specializing in PHP and Laravel. With a solid foundation in web technologies, I bring expertise in HTML, CSS, and JavaScript to the table. My proficiency extends to managing databases, particularly MySQL.</p>
 
-                <p><a href="#" class="btn btn-primary">Meet them now</a></p>
+                <p><a href="{{ route('contact') }}" class="btn btn-primary">Meet them now</a></p>
             </div>
         </div>
     </div>

@@ -6,8 +6,10 @@
             </div>
             <div class="col-lg-4 mr-auto">
                 <h2>Car Company</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit suscipit, repudiandae similique accusantium eius nulla quam laudantium sequi.</p>
-                <p>Debitis voluptates corporis saepe molestias tenetur ab quae, quo earum commodi, laborum dolore, fuga aliquid delectus cum ipsa?</p>
+                <p>
+                    Hi there! I'm Sara Mohamed Abdelaal, a seasoned backend developer specializing in PHP and Laravel. With a solid foundation in web technologies, I bring expertise in HTML, CSS, and JavaScript to the table. My proficiency extends to managing databases, particularly MySQL.
+                </p>
+                <p>Beyond technical skills, I am a dedicated problem solver and a quick learner, always eager to stay updated with the latest industry trends. I believe in writing clean, efficient, and maintainable code to create optimal user experiences.</p>
             </div>
         </div>
     </div>

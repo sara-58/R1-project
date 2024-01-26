@@ -3,7 +3,9 @@
         <div class="row justify-content-center text-center">
             <div class="col-7 text-center mb-5">
                 <h2>Contact Us Or Use This Form To Rent A Car</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!</p>
+                <p>
+                    Let's connect and discuss how my skills and experience can contribute to the success of your team and projects. I'm excited about the opportunity to bring my passion for backend development to a new and challenging role.
+                </p>
             </div>
         </div>
         <div class="row">
@@ -43,10 +45,12 @@
                     <ul class="list-unstyled footer-link">
                         <li class="d-block mb-3">
                             <span class="d-block text-black">Address:</span>
-                            <span>34 Street Name, City Name Here, United States</span>
+                            <span>
+                                I am currently based in Jehan St., Mansoura, Egypt, and I can work remotly .
+                            </span>
                         </li>
-                        <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+1 242 4942 290</span></li>
-                        <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>info@yourdomain.com</span></li>
+                        <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+2 01062244496</span></li>
+                        <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>sm.abdelaal.cs@gmail.com</span></li>
                     </ul>
                 </div>
             </div>

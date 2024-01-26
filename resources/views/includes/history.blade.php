@@ -6,8 +6,8 @@
             </div>
             <div class="col-lg-4 ml-auto">
                 <h2>Our History</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit suscipit, repudiandae similique accusantium eius nulla quam laudantium sequi.</p>
-                <p>Debitis voluptates corporis saepe molestias tenetur ab quae, quo earum commodi, laborum dolore, fuga aliquid delectus cum ipsa?</p>
+                <p>Throughout my career, I've successfully developed robust and scalable backend solutions, ensuring seamless interactions between the server and user interfaces.</p>
+                <p>I thrive on tackling complex challenges and delivering high-quality code that meets both functional and performance requirements.</p>
             </div>
         </div>
     </div>

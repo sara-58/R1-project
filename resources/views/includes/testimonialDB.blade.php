@@ -8,7 +8,7 @@
         </div>
         @if(count($testimonials) > 0)
         <div class="row">
-            @foreach($testimonials->reverse()->take(6) as $testimonial)
+            @foreach($testimonials->reverse()->take(9) as $testimonial)
             <div class="col-lg-4 mb-4">
                 <div class="testimonial-2">
                     <blockquote class="mb-4">

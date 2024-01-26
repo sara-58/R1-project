@@ -28,7 +28,7 @@
                         </div>
                         <div>
                             <p>{{$car->description}}</p>
-                            <p><a href="#" class="btn btn-primary btn-sm">Rent Now</a></p>
+                            <p><a href="single/{{$car->id}}" class="btn btn-primary btn-sm">Rent Now</a></p>
                         </div>
                     </div>
                 </div>
@@ -44,9 +44,6 @@
             </div>
         </div>
 
-        <!-- <div class="pagination  justify-content-center">
-            {{ $cars->links() }}
-        </div> -->
 
     </div>
 </div>

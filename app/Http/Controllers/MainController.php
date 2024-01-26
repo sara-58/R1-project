@@ -41,10 +41,6 @@ class MainController extends Controller
 
     }
 
-    public function single()
-    {
-        return view('single');
-    }
     /**
      * Show the form for creating a new resource.
      */

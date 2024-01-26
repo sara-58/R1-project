@@ -30,7 +30,8 @@ Route::get('about', [MainController::class, 'about'])->name('about');
 Route::get('testimonial', [MainController::class, 'testi'])->name('testimonial');
 Route::get('listing', [MainController::class, 'listing'])->name('listing');
 Route::get('blog', [MainController::class, 'blog'])->name('blog');
-Route::get('single', [MainController::class, 'single'])->name('single');
+
+Route::get('single/{id}', [CarController::class, 'show'])->name('single');
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact');
 Route::post('sendEmail', [ContactController::class, 'send'])->name('sendEmail');
