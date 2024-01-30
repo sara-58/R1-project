@@ -68,10 +68,12 @@ class CarController extends Controller
      */
     public function show(string $id)
     {
-
+        $categories = Category::withCount('cars')->select('id', 'categoryName')->get();
         $car = Car::findOrFail($id);
-        return view('single', compact('car'));
+
+        return view('single', compact('car', 'categories'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -99,6 +101,7 @@ class CarController extends Controller
         ]);
 
         $data['carPublished'] = isset($request['carPublished']);
+
         if (isset($request->carImage)) {
             $data['carImage'] = $this->uploadFile($request->carImage, 'assets\images');
         }

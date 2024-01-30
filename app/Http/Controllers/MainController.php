@@ -13,8 +13,9 @@ class MainController extends Controller
      */
     public function index()
     {
+        $testimonials = Testimonial::get();
         $cars = Car::get();
-        return view('index', compact('cars'));
+        return view('index', compact('cars'), compact('testimonials'));
     }
 
     public function about()
@@ -31,7 +32,8 @@ class MainController extends Controller
     public function listing()
     {
         $cars = Car::paginate(6);
-        return view('listing', compact('cars'));
+        $testimonials = Testimonial::get();
+        return view('listing', compact('cars'), compact('testimonials'));
     }
 
     public function blog()

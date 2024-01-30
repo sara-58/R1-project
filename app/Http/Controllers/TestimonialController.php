@@ -82,7 +82,7 @@ class TestimonialController extends Controller
             'testiImage' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
 
-        $data['testiPublished'] = isset($request->published);
+        $data['testiPublished'] = isset($request['testiPublished']);
 
         if(isset($request->testiImage)){
             $data['testiImage'] = $this->uploadFile($request->testiImage, 'assets\images');

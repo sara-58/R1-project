@@ -34,27 +34,27 @@ Edit User
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Full Name <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" id="first-name" name="fullName" required="required" class="form-control ">
+                                    <input type="text" id="first-name" name="fullName" required="required" class="form-control " value="{{ $user->fullName }}">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="user-name">Username <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input type="text" id="user-name" name="userName" required="required" class="form-control">
+                                    <input type="text" id="user-name" name="userName" required="required" class="form-control" value="{{ $user->userName }}">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label for="email" class="col-form-label col-md-3 col-sm-3 label-align">Email <span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <input id="email" class="form-control" type="email" name="email" required="required">
+                                    <input id="email" class="form-control" type="email" name="email" required="required" value="{{ $user->email }}">
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align">Active</label>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" class="flat" name="active">
+                                        <input type="checkbox" class="flat" name="active" @checked($user->published)>
                                     </label>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@ Edit User
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <button class="btn btn-primary" type="button">Cancel</button>
+                                    <button class="btn btn-primary" href="{{ route('users') }}">Cancel</button>
                                     <button type="submit" class="btn btn-success">Update</button>
                                 </div>
                             </div>

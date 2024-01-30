@@ -36,8 +36,8 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <p>{{$car->description}}</p>
-                                    <p><a href="#" class="btn btn-primary btn-sm">Rent Now</a></p>
+                                    <p>{{ strlen($car->description) > 95 ? substr($car->description, 0, 95) . '...' : $car->description }}</p>
+                                    <p><a href="single/{{$car->id}}" class="btn btn-primary btn-sm">Rent Now</a></p>
                                 </div>
                             </div>
 

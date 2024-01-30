@@ -6,7 +6,7 @@
                         <p class="mb-0 opa-7">I can be reached via email at sm.abdelaal.cs@gmail.com.</p>
                     </div>
                     <div class="col-lg-5 text-md-right">
-                        <a href="{{ route('contact') }}" class="btn btn-primary btn-white">Rent a car now</a>
+                        <a href="{{ route('listing') }}" class="btn btn-primary btn-white">Rent a car now</a>
                     </div>
                 </div>
             </div>

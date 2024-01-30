@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Traits\Common;
-use Carbon\Carbon;
-
 
 class UserController extends Controller
 {
@@ -50,12 +50,17 @@ class UserController extends Controller
             'password' => ['required', 'string', 'min:8'],
         ]);
         
-        $data['active'] = isset($request['active']);
-        $data['email_verified_at'] = now();
 
-        User::create($data);
+        User::create([
+            'fullName' => $data['fullName'],
+            'userName' => $data['userName'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'active' => $data['active'] ?? true,
+            'email_verified_at'=>now(),
+        ]);
 
-        return 'done';
+        return 'User added successfully';
     }
 
     /**
@@ -78,21 +83,28 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): RedirectResponse
     {
         $data = $request->validate([
             'fullName' => ['required', 'string', 'max:255'],
             'userName' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $id],
             'password' => ['required', 'string', 'min:8'],
         ]);
 
-        $data['active'] = isset($request->active);
 
-        User::where('id', $id)->update($data);
+        User::where('id', $id)->update([
+            'fullName' => $data['fullName'],
+            'userName' => $data['userName'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'active' => $data['active'] ?? true,
+        ]);
 
         return redirect()->route('users');
+    
     }
+
 
     /**
      * Remove the specified resource from storage.

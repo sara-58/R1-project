@@ -10,22 +10,20 @@
     <div class="sidebar-box">
         <div class="categories">
             <h3>Categories</h3>
-            <li><a href="#">Creatives <span>(12)</span></a></li>
-            <li><a href="#">News <span>(22)</span></a></li>
-            <li><a href="#">Design <span>(37)</span></a></li>
-            <li><a href="#">HTML <span>(42)</span></a></li>
-            <li><a href="#">Web Development <span>(14)</span></a></li>
+            @foreach($categories as $category)
+            <li><a href="#">{{$category->categoryName}} <span>({{ optional($category->cars)->count() ?? 0 }})</span></a></li>
+            @endforeach
         </div>
     </div>
     <div class="sidebar-box">
-        <img src="images/person_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid mb-4 w-50 rounded-circle">
+        <img src="{{asset('assets/images/person_1.jpg')}}" alt="Free Website Template by Free-Template.co" class="img-fluid mb-4 w-50 rounded-circle">
         <h3 class="text-black">About The Author</h3>
-        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-        <p><a href="#" class="btn btn-primary btn-md text-white">Read More</a></p>
+        <p>Hi there! I'm Sara Mohamed Abdelaal, a seasoned backend developer specializing in PHP and Laravel. With a solid foundation in web technologies, I bring expertise in HTML, CSS, and JavaScript to the table.</p>
+        <p><a href=" {{ route('about') }}" class="btn btn-primary btn-md text-white">Read More</a></p>
     </div>
 
     <div class="sidebar-box">
         <h3 class="text-black">Paragraph</h3>
-        <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+        <p>Beyond technical skills, I am a dedicated problem solver and a quick learner, always eager to stay updated with the latest industry trends. I believe in writing clean, efficient, and maintainable code to create optimal user experiences. Let's connect and discuss how my skills and experience can contribute to the success of your team and projects. </p>
     </div>
 </div>

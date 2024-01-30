@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Traits\Common;
 use App\Models\Category;
+use App\Models\Car;
 
 class CategoryController extends Controller
 {
+    use Common;
     private $columns =[
         'categoryName',
     ];
@@ -77,7 +80,17 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        Category::where('id', $id)->delete();
+        $category = Category::find($id);
+        $carsCount = Car::where('category_id', $id)->count();
+
+        if ($carsCount > 0) {
+
+            return ('Cannot delete category. There are cars associated with it.');
+        }
+
+        $category->delete();
+
         return redirect()->route('category');
     }
+
 }
