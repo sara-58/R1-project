@@ -6,7 +6,7 @@
                         @auth
                         <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>{{ auth()->user()->userName }}</h2>
+                        <h2>{{ auth()->user()->fullName }}</h2>
                         </div>
                         @endauth
                     </div>

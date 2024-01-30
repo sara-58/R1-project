@@ -16,6 +16,7 @@ class ContactController extends Controller
      */
     public function index()
     {
+
         $messages = Message::get();
         return view('dashboard.messageList', compact('messages'));
     }
@@ -63,7 +64,14 @@ class ContactController extends Controller
     public function show(string $id)
     {
         $message = Message::findOrFail($id);
-        return view('dashboard.showMessage', compact('message'));
+        if (!$message->readed) {
+            $message->update(['readed' => 1]);
+        }
+
+        $unreadCount = Message::where('readed', 0)->count();
+
+        return view('dashboard.showMessage', compact('message', 'unreadCount'));
+    
     }
 
     /**
