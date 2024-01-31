@@ -26,8 +26,8 @@
                                 <span class="number">{{$car->passengers}}</span>
                             </div>
                         </div>
-                        <div>
-                            <p>{{ strlen($car->description) > 95 ? substr($car->description, 0, 95) . '...' : $car->description }}</p>
+                        <div style="width: 300px; height: 100px;">
+                            <p>{{ strlen($car->description) > 75 ? substr($car->description, 0, 75) . '...' : $car->description }}</p>
                             <p><a href="single/{{$car->id}}" class="btn btn-primary btn-sm">Rent Now</a></p>
                         </div>
                     </div>

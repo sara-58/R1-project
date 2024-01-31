@@ -105,6 +105,8 @@ class CarController extends Controller
         if (isset($request->carImage)) {
             $data['carImage'] = $this->uploadFile($request->carImage, 'assets\images');
         }
+        
+        $data['category_id'] = $request['category_id'];
 
         Car::where('id',$id)->update($data);
         return redirect()->route('cars');

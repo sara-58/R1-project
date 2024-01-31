@@ -11,8 +11,8 @@
             @foreach($testimonials->reverse()->take(9) as $testimonial)
             <div class="col-lg-4 mb-4">
                 <div class="testimonial-2">
-                    <blockquote class="mb-4">
-                        <p>{{$testimonial->content}}</p>
+                    <blockquote class="mb-4" style="width: 300px; height: 180px;">
+                        <p>" {{ strlen($testimonial->content) > 260 ? substr($testimonial->content, 0, 260) . '...' : $testimonial->content }} "</p>
                     </blockquote>
                     <div class="d-flex v-card align-items-center">
                         <img src="{{ asset('assets/images/'.$testimonial->testiImage) }}" alt="Image" class="img-fluid mr-3">
